@@ -9,15 +9,17 @@
 #'
 
 eval_dt = function(x) {
+  # x should be a valid data frame
   if (!is.data.frame(x)) {
     stop('the data may NOT be a valid data frame. If it is a JSON data, you can apply eval_json().')
   }
   else{
+    ## calculate value distribution of each column
     tmp = x %>%
       apply(., c(1, 2), as.character) %>%
       as.data.frame() %>%
       lapply(., plyr::count)
-
+    ## bind the list of data frames
     result = bind_rows(tmp) %>%
       mutate(.,key=rep(names(tmp),
                        sapply(tmp, nrow)))

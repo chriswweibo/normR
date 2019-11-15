@@ -24,6 +24,7 @@
 require('plyr')
 require('magrittr')
 require('dplyr')
+require('stringr')
 
 normr=function(data,config,type=c('dt','json')){
   if (type=='dt'){
