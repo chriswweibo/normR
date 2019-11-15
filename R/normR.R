@@ -1,5 +1,3 @@
-data=iris
-
 # cg = categorization 离散化
 # vs = value substitution 值替换
 # ks = key substitution 键替换
@@ -23,33 +21,21 @@ data=iris
 #' @examples
 #' cat_function()
 
-cat_function <- function(love=TRUE){
-  if(love==TRUE){
-    print("I love cats!")
+require('plyr')
+require('magrittr')
+require('dplyr')
+
+normr=function(data,config,type=c('dt','json')){
+  if (type=='dt'){
+    norm_dt(data,config)
   }
   else {
-    print("I am not a cool person.")
-  }
+    if (type=='json'){
+      norm_json(data,config)
+    }
+    else {
+      stop('Please specify the data type')
+    }
+}
 }
 
-config=data.frame(key=c('Sepal.Length','Species','Species','Sepal.Width'),
-                  pattern=c('5.1,6.4','setosa|Setosa','species',''),
-                  operation=c('cg','vs','ks','ct')
-)
-norm_DT=function(data,config){
-
-}
-
-norm_JSON=function(data,config){
-
-}
-
-
-normalizer=function(data,type=c('dt','json'),config){
-
-}
-
-
-hello <- function() {
-  print("Hello, world!")
-}
