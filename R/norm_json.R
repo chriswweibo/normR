@@ -8,6 +8,6 @@
 #' cat_function()
 #'
 
-norm_json=function(data,config){
-
+norm_json = function(data, config) {
+    
 }
