@@ -21,9 +21,10 @@ eval_dt = function(x) {
       lapply(., plyr::count)
     ## bind the list of data frames
     result = bind_rows(tmp) %>%
-      mutate(.,key=rep(names(tmp),
-                       sapply(tmp, nrow)))
+      mutate(., key = rep(names(tmp),
+                          sapply(tmp, nrow)))
     colnames(result) = c('value', 'freq', 'key')
+
     return(result)
   }
 }

@@ -25,6 +25,8 @@ require('plyr')
 require('magrittr')
 require('dplyr')
 require('stringr')
+library(jsonlite)
+library(rlist)
 
 normr=function(data,config,type=c('dt','json')){
   if (type=='dt'){
