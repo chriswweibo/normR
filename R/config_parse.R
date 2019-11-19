@@ -1,12 +1,3 @@
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords cats
-#' @export
-#' @examples
-#' cat_function()
-#'
-
-
 # cg = categorization 离散化
 # vs = value substitution 值替换
 # ks = key substitution 键替换
@@ -21,6 +12,18 @@
 # lc = lower case change 转小写
 
 
-norm_dt = function(x, config) {
+#' A Cat Function
+#'
+#' This function allows you to express your love of cats.
+#' @param love Do you love cats? Defaults to TRUE.
+#' @keywords cats
+#' @export
+#' @examples
+#' cat_function()
 
+config_parse = function(filepath) {
+  tmp=read_csv(filepath) %>% unique()
+  message('Opertion summary:')
+  print(count(tmp,'operation'))
+  return(tmp)
 }

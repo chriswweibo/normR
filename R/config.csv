@@ -1,0 +1,13 @@
+key,pattern,operation
+Age,"40,60",cg
+Sex,男性|男@女性|女,vs
+Sex,Gender,ks
+--,,gc
+Path_id,character,ct
+user_id,all,ae
+ki67,first,ne
+hometown,b,st
+conclusion,"肝.*{1,5}叶",re
+path_id,"f,4",fe
+Path_id,,uc
+Path_id,,lc

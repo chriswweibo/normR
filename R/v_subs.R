@@ -22,24 +22,14 @@
 # uc = upper case change 转大写
 # lc = lower case change 转小写
 
-cg_func=function(x,type,cuts){
-  # x is the dataframe
+v_subs=function(dat,key, type,pattern, repalcement){
+  # x is numeric vector
   # type is the incicator, dt or json
   # cuts is a numeric vector defining different thresholds.
-  if (type=='dt' & !is.data.frame(x)){
-    stop('The data is not a valid data frame')
+  if (!is.numeric(x)){
+    stop('the data is not a valid numeric type, and can NOT be categorized.')
   }
-  if (type=='json' & !is.list(x)){
-    stop('The data is not a valid json')
+  else {
+    cg = findInterval(x,cuts,left.open = T)
   }
-  cg = if_else(is.numeric(x),findInterval(x,cuts),stop('the data is not numeirc and can not be categorized ')),
-
-
-}
-
-test=function(x,type){
-  switch(type,
-         a=function(x){x*2},
-         b=x*3
-  )
 }

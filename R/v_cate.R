@@ -1,3 +1,5 @@
+#' A Cat Function
+#'
 #' This function allows you to express your love of cats.
 #' @param love Do you love cats? Defaults to TRUE.
 #' @keywords cats
@@ -15,12 +17,21 @@
 # ae = alphabet extraction 提取字母
 # ne = number extraction 提取数字
 # st = space trim 空格消除
-# re = regular expression extraction 正则表达抽取
+# re = regular expression extraction 正则表达式抽取
 # fe = fixed length extraction 定长抽取
 # uc = upper case change 转大写
 # lc = lower case change 转小写
 
-
-norm_dt = function(x, config) {
-
+v_cate=function(x,cuts){
+  # x is numeric vector
+  # type is the incicator, dt or json
+  # cuts is a numeric vector defining different thresholds.
+  if (!is.numeric(x)){
+    stop('the data is not a valid numeric type, and can NOT be categorized.')
+  }
+  else {
+    cg = findInterval(x,cuts,left.open = T)
+  }
+  return(cg)
 }
+
