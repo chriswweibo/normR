@@ -1,6 +1,6 @@
-#' ae_dt Function
+#' ne_dt Function
 #'
-#' This function allows you to extract the alphebats in a column.
+#' This function allows you to extract numbers in a column.
 #' @param dt a valid data frame object.
 #' @param col character, the selected column name waiting for value-substitution.
 #' @param all logical, if ture, all alphebats cobination will be extracted, otherwise only the first combination will be extracted. Default to TRUE.
@@ -8,24 +8,23 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' ae_dt()
+#' ne_dt()
 #'
 
-ae_dt = function(dt, col, all=TRUE, append=TRUE) {
+ne_dt = function(dt, col, all=TRUE, append=TRUE) {
   col_dt = colnames(dt)
   if (!is.element(col, col_dt)) {
     stop(paste(col, 'is NOT a valid column name!\n'))
-    }
+  }
   else{
     if (all){
-      result=str_extract_all(dt[[col]],"[a-zA-Z]+") %>% sapply(.,function(x) paste0(x,collapse ='_'))
+      result=str_extract_all(dt[[col]],"[0-9]+") %>% sapply(.,function(x) paste0(x,collapse ='_'))
     }
     else {
-      result=str_extract(dt[[col]],"[a-zA-Z]+")
+      result=str_extract(dt[[col]],"[0-9]+")
     }
     if (append){
-      dt[[paste(col,'_ae',sep='')]]=result
-
+      dt[[paste(col,'_ne',sep='')]]=result
     }
     else {
       dt[[col]]=result

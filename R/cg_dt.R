@@ -4,8 +4,7 @@
 #' @param dt a valid data frame object.
 #' @param col character, the selected column name waiting for categorization.
 #' @param cuts numeric, the numeric vector of cut-off values.Should be sorted increasingly.
-#' @param append logical, if true, new column containing categorisation result will appended to dt; otherwise,
-#' the corresponding column will be replaced by the new column. Default to FALSE.
+#' @param append logical, if true, new column will appended to dt; otherwise, the corresponding column will be replaced by the new column. Default to FALSE.
 #' @keywords cats
 #' @export
 #' @examples
@@ -41,7 +40,7 @@ cg_dt=function(dt,col,cuts,append = FALSE){
       dt[[col]]=cg_result
     }
     else {
-      dt[[paste(col,'_cg')]]=cg_result
+      dt[[paste(col,'_cg',sep='')]]=cg_result
     }
 
   return(dt)

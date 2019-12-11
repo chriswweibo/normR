@@ -8,8 +8,7 @@
 # st = space trim 空格消除
 # re = regular expression extraction 正则表达抽取
 # fe = fixed length extraction 定长抽取
-# uc = upper case change 转大写
-# lc = lower case change 转小写
+# cc = case change 转大小写
 
 
 #' A Cat Function

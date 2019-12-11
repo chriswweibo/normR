@@ -10,8 +10,8 @@
 # cg = categorization 离散化
 # vs = value substitution 值替换
 # ks = key substitution 键替换
-# gc = global substitution 全局替换
-# ct = change type 改变数据类型
+# gs = global substitution 全局替换
+# tc = type change 改变数据类型
 # ae = alphabet extraction 提取字母
 # ne = number extraction 提取数字
 # st = space trim 空格消除

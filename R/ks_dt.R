@@ -1,7 +1,7 @@
 
 #' ks_dt Function
 #'
-#' This function allows you to express your love of cats.
+#' This function allows you to change the column names in a batch way.
 #' @param dt a valid data frame object.
 #' @param cols character, the selected column name waiting for substitution.
 #' @param subs character, the substitution of columns,with the same length of cols.

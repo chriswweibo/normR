@@ -1,4 +1,4 @@
-#' ct_dt Function
+#' tc_dt Function
 #'
 #' This function allows you to express your love of cats.
 #' @param dt a valid data frame object.
@@ -7,10 +7,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' ct_dt()
+#' tc_dt()
 #'
 
-ct_dt = function(dt, cols, type) {
+tc_dt = function(dt, cols, type) {
   # dt is a valid data frame object
   # cols is the vector of column name of dt
   # type is the vector of new column types, with the same length of cols
