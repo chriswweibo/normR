@@ -1,15 +1,15 @@
-#' A Cat Function
+#' eval_dt Function
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
+#' This function describes the value distribution of each column.
+#' @param path a string that indicates the data frame file path of csv format.
 #' @keywords cats
 #' @export
 #' @examples
-#' cat_function()
+#' eval_dt()
 #'
 
 eval_dt = function(path) {
-    # x is th data frame file path of csv format
+    # path is the data frame file path of csv format
     x = read.csv(path)
     if (!is.data.frame(x)) {
         stop("the data may NOT be a valid data frame. If it is a JSON data, you can apply eval_json().")
