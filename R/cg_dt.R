@@ -11,7 +11,7 @@
 #' categ_dt()
 #'
 
-categ_dt=function(dt,col,cuts,append = FALSE){
+categ_dt=function(dt,col,cuts,append = TRUE){
   # this function produces the left-open-right-closed intervals.
   if (!is.numeric(dt[[col]])){
     stop('the values in the selected column are NOT numeric and can NOT be categorised now.')
@@ -36,11 +36,12 @@ categ_dt=function(dt,col,cuts,append = FALSE){
       cg_result[cg_result==v]=cuts_label[v+1]
     }
 
-    if (!append){
-      dt[[col]]=cg_result
+    if (append){
+      dt[[paste(col,'_cg',sep='')]]=cg_result
+
     }
     else {
-      dt[[paste(col,'_cg',sep='')]]=cg_result
+      dt[[col]]=cg_result
     }
 
   return(dt)

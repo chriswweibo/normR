@@ -10,7 +10,7 @@
 #' type_change()
 #'
 
-type_change_dt = function(dt, col, type) {
+type_change_dt = function(dt, col, type,append=TRUE) {
   # dt is a valid data frame object
   # cols is the vector of column name of dt
   # type is the vector of new column types, with the same length of cols
@@ -23,10 +23,17 @@ type_change_dt = function(dt, col, type) {
       stop(col[!is.element(col, cols_dt)] %>% paste(., 'is NOT a valid column name!\n'))
     }
     else{
+    if (append){
       for (i in 1:length(col)) {
-        dt[,col[i]]=paste('as.',type[i],'(','dt[,cols[i]]',')',sep='') %>% parse(text=.) %>% eval()
+        dt[[paste(col,'_tc',sep='')]]=paste('as.',type[i],'(','dt[,col[i]]',')',sep='') %>% parse(text=.) %>% eval()
       }
     }
-    return(dt)
+    else {
+      for (i in 1:length(col)) {
+        dt[,col[i]]=dt[[paste(col,'_st',sep='')]]=paste('as.',type[i],'(','dt[,col[i]]',')',sep='') %>% parse(text=.) %>% eval()
+      }
+    }
+    }
   }
+  return(dt)
 }

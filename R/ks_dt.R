@@ -10,23 +10,31 @@
 #' key_subs_dt()
 #'
 
-key_subs_dt=function(dt,cols,subs){
+key_subs_dt=function(dt,col,subs,append=TRUE){
   # dt is a valid data frame object
   # key is the vector of column names of dt
   # subs is the substitution of keys,with the same length of keys
   cols_dt=colnames(dt)
-  if (length(cols) != length(subs)) {
+  if (length(col) != length(subs)) {
     stop('The length of cols does NOT equal to that of subs and can NOT be applied.')
   }
   else {
-  if (any(!is.element(cols,cols_dt))){
-    stop(cols[!is.element(cols,cols_dt)]%>% paste(.,'is NOT a valid column name!\n'))
+  if (any(!is.element(col,cols_dt))){
+    stop(col[!is.element(col,cols_dt)]%>% paste(.,'is NOT a valid column name!\n'))
   }
   else {
-    for (col in cols){
-      colnames(dt)[which(colnames(dt)==col)]=subs[which(cols==col)]
+    if (append){
+      for (co in col){
+        dt[[paste(subs[which(col==co)],'_ks',sep='')]]=dt[,which(colnames(dt)==co)]
+      }
+    }
+    else {
+      for (co in col){
+        colnames(dt)[which(colnames(dt)==co)]=subs[which(col==co)]
+      }
     }
   }
   }
+
   return(dt)
 }

@@ -13,7 +13,7 @@
 #' value_subs_dt()
 #'
 
-value_subs_dt = function(dt, col, patt, subs) {
+value_subs_dt = function(dt, col, patt, subs,append=TRUE) {
   # dt is a valid data frame object
   # key is the column name of dt
   # pattern is the vector of values
@@ -27,10 +27,17 @@ value_subs_dt = function(dt, col, patt, subs) {
       stop(col[!is.element(col, col_dt)] %>% paste(., 'is NOT a valid column name!\n'))
     }
     else{
-      for (i in 1:length(patt)) {
-        dt[[col]] = str_replace_all(dt[[col]], patt[i], subs[i])
+      if (append){
+        for (i in 1:length(patt)) {
+          dt[[paste(col,'_vs',sep='')]] = str_replace_all(dt[[col]], patt[i], subs[i])
+        }
+      }
+      else {
+        for (i in 1:length(patt)) {
+          dt[[col]]= str_replace_all(dt[[col]], patt[i], subs[i])
+        }
       }
     }
-    return(dt)
   }
+  return(dt)
 }

@@ -26,11 +26,14 @@
 
 norm_dt = function(dt, config, append=TRUE) {
   conf=read_csv(config)
-  if (any(!is.element(colnames(conf),c('conditon','operation')))){
-    stop('the config file should has twos columns named as conditon and operation. Please check that.')
+  if (any(!is.element(colnames(conf),c('args','func')))){
+    stop('the config file should has two columns named as args and func. Please check that.')
   }
   else{
-
+    result=dt
+    for (j in 1: nrow(conf)){
+      result=paste(conf$func[j],'(result,',conf$args[j],')',sep='') %>% parse(text=.) %>% eval()
+    }
   }
-
+  return(result)
 }
