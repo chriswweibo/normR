@@ -1,4 +1,4 @@
-#' fe_dt Function
+#' fixed_len_extract_dt Function
 #'
 #' This function allows you to extract numbers in a column.
 #' @param dt a valid data frame object.
@@ -9,10 +9,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' fe_dt()
+#' fixed_len_extract_dt()
 #'
 
-fe_dt = function(dt, col, length, where=c('left','right'), append=TRUE) {
+fixed_len_extract_dt = function(dt, col, length, where=c('left','right'), append=TRUE) {
   col_dt = colnames(dt)
   if (!is.element(col, col_dt)) {
     stop(paste(col, 'is NOT a valid column name!\n'))

@@ -1,4 +1,4 @@
-#' ae_dt Function
+#' alphabet_extract_dt Function
 #'
 #' This function allows you to extract the alphebats in a column.
 #' @param dt a valid data frame object.
@@ -8,10 +8,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' ae_dt()
+#' alphabet_extract()
 #'
 
-ae_dt = function(dt, col, all=TRUE, append=TRUE) {
+alphabet_extract_dt = function(dt, col, all=TRUE, append=TRUE) {
   col_dt = colnames(dt)
   if (!is.element(col, col_dt)) {
     stop(paste(col, 'is NOT a valid column name!\n'))

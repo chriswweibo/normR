@@ -1,4 +1,4 @@
-#' cc_dt Function
+#' case_change_dt Function
 #'
 #' This function allows you to extract numbers in a column.
 #' @param dt a valid data frame object.
@@ -10,10 +10,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' fe_dt()
+#' case_change_dt()
 #'
 
-cc_dt = function(dt, col, case=c('upper','lower','capitalized'), append=TRUE) {
+case_change_dt = function(dt, col, case=c('upper','lower','capitalized'), append=TRUE) {
   col_dt = colnames(dt)
   if (!is.element(col, col_dt)) {
     stop(paste(col, 'is NOT a valid column name!\n'))

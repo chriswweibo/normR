@@ -1,6 +1,6 @@
-#' st_dt Function
+#' space_trim_dt Function
 #'
-#' This function allows you to change the values in a column.
+#' This function allows you to trim spaces in a column.
 #' @param dt a valid data frame object.
 #' @param col character, the selected column name waiting for value-substitution.
 #' @param where character, if left, only spaces on the left will be trimmed.
@@ -12,10 +12,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' st_dt()
+#' space_trim_dt()
 #'
 
-st_dt = function(dt, col, where=c('left','right','both','internal','all'), append=TRUE) {
+space_trim_dt = function(dt, col, where=c('left','right','both','internal','all'), append=TRUE) {
   col_dt = colnames(dt)
   if (!is.element(col, col_dt)) {
     stop(paste(col, 'is NOT a valid column name!\n'))

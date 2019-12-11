@@ -1,4 +1,4 @@
-#' re_dt Function
+#' regular_extract_dt Function
 #'
 #' This function allows you to extract numbers in a column.
 #' @param dt a valid data frame object.
@@ -9,10 +9,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' re_dt()
+#' regular_extract_dt()
 #'
 
-re_dt = function(dt, col, patt, all=TRUE, append=TRUE) {
+regular_extract_dt = function(dt, col, patt, all=TRUE, append=TRUE) {
   col_dt = colnames(dt)
   if (!is.element(col, col_dt)) {
     stop(paste(col, 'is NOT a valid column name!\n'))

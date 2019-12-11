@@ -1,5 +1,5 @@
 
-#' ks_dt Function
+#' key_subs_dt Function
 #'
 #' This function allows you to change the column names in a batch way.
 #' @param dt a valid data frame object.
@@ -7,10 +7,10 @@
 #' @param subs character, the substitution of columns,with the same length of cols.
 #' @export
 #' @examples
-#' ks_dt()
+#' key_subs_dt()
 #'
 
-ks_dt=function(dt,cols,subs){
+key_subs_dt=function(dt,cols,subs){
   # dt is a valid data frame object
   # key is the vector of column names of dt
   # subs is the substitution of keys,with the same length of keys

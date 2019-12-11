@@ -1,4 +1,4 @@
-#' ne_dt Function
+#' number_extract_dt Function
 #'
 #' This function allows you to extract numbers in a column.
 #' @param dt a valid data frame object.
@@ -8,10 +8,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' ne_dt()
+#' number_extract_dt()
 #'
 
-ne_dt = function(dt, col, all=TRUE, append=TRUE) {
+number_extract_dt = function(dt, col, all=TRUE, append=TRUE) {
   col_dt = colnames(dt)
   if (!is.element(col, col_dt)) {
     stop(paste(col, 'is NOT a valid column name!\n'))

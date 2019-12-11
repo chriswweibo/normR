@@ -1,4 +1,4 @@
-#' cg_dt Function
+#' categ_dt Function
 #'
 #' This function allows you to express your love of cats.
 #' @param dt a valid data frame object.
@@ -8,10 +8,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' cg_dt()
+#' categ_dt()
 #'
 
-cg_dt=function(dt,col,cuts,append = FALSE){
+categ_dt=function(dt,col,cuts,append = FALSE){
   # this function produces the left-open-right-closed intervals.
   if (!is.numeric(dt[[col]])){
     stop('the values in the selected column are NOT numeric and can NOT be categorised now.')

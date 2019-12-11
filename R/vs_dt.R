@@ -1,6 +1,6 @@
 
 
-#' vs_dt Function
+#' value_subs_dt Function
 #'
 #' This function allows you to change the values in a column.
 #' @param dt a valid data frame object.
@@ -10,10 +10,10 @@
 #' @keywords cats
 #' @export
 #' @examples
-#' vs_dt()
+#' value_subs_dt()
 #'
 
-vs_dt = function(dt, col, patt, subs) {
+value_subs_dt = function(dt, col, patt, subs) {
   # dt is a valid data frame object
   # key is the column name of dt
   # pattern is the vector of values
