@@ -1,7 +1,7 @@
 #' norm_dt
 #' This function allows you to normalize a daa frame using the configuration object.
 #' @param dt a valid data frame
-#' @param config character, the file path that contains the configuration info.
+#' @param config character or dataframe, the file path or dataframe that contains the configuration info.
 #' @param append logical, if true, new column will appended to dt; otherwise, the corresponding column will be replaced by the new column. Default to TRUE.
 #' @keywords  config a valid data frame containing specific normalization settings of two columns, the colnames should be condition and operation.
 #' The condition column contains the valid args accepted by each operation functions.
@@ -25,7 +25,13 @@
 
 
 norm_dt = function(dt, config, append=TRUE) {
-  conf=read_csv(config)
+  if (is.character(config)){
+    conf=read_csv(config)
+  }
+  else {
+    conf=config
+  }
+
   if (any(!is.element(colnames(conf),c('args','func')))){
     stop('the config file should has two columns named as args and func. Please check that.')
   }
