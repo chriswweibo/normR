@@ -10,24 +10,27 @@
 # cc = case change 转大小写
 
 
-#' A Cat Function
+#' @title A normr Function
 #'
-#' This function allows you to express your love of cats.
-#' @param love Do you love cats? Defaults to TRUE.
+#' @description This function allows you to evaluate and normalize your data in a more friendly and reproducible way.
+#' @param data dataframe or a json, which is waiting to be normalized.
+#' @param config character or dataframe, the file path or dataframe that contains the configuration info.
+#' @param type character, indicate the type of input data. dt is for dataframe and json for json data.
+#' @param append logical, if true, new column will appended to dt; otherwise, the corresponding column will be replaced by the new column. Default to TRUE.
 #' @keywords cats
 #' @export
 #' @examples
-#' cat_function()
+#' normr()
 
-require("plyr")
-require("magrittr")
-require("dplyr")
-require("stringr")
+library(plyr)
+library(magrittr)
+library(dplyr)
+library(stringr)
 library(jsonlite)
 library(rlist)
 library(readr)
 
-normr = function(data, config, type = c("dt", "json")) {
+normr = function(data, config, type = c("dt", "json"),append=TRUE) {
     if (type == "dt") {
         norm_dt(data, config)
     } else {
